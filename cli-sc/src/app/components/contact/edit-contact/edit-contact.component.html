@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <div *ngIf="isLoading">
+        <div class="fa-3x">
+          <i class="fas fa-spinner fa-spin"></i>
+        </div>
+      </div><br>
+      <div *ngIf="!isLoading">
+        <a routerLink="/contacts">
+          <button type="button" class="btn btn-primary">
+            <i class="fa fa-backward"></i> Retour à la liste des contacts
+          </button>
+        </a>
+        <h1>Editer le contact {{ contact?.lastName }} {{ contact?.firstName }} : </h1>
+        <form *ngIf="contact" #contactForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Nom : </label>
+            <input type="text" class="form-control" id="name"  name="name" required [(ngModel)]="contact.firstName"  #name="ngModel">
+            <div [hidden]="name.valid || name.pristine"
+                 class="alert alert-danger">
+              Le nom de la conducteur est requis
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="prenn">Prenom : </label>
+            <input type="text"  class="form-control" name="prenn" id="prenn" required [(ngModel)]="contact.lastName" #prenn="ngModel">
+            <div [hidden]="prenn.valid || prenn.pristine"
+                 class="alert alert-danger">
+              Le prenom est requis
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail : </label>
+            <input type="email"  class="form-control" name="email" id="email" required [(ngModel)]="contact.email" #nbElev="ngModel">
+            <div [hidden]="nbElev.valid || nbElev.pristine"
+                 class="alert alert-danger">
+              L'email du contact est requise
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="adress">Adresse : </label>
+            <input type="text"  class="form-control" name="adress" id="adress" required [(ngModel)]="contact.adresse" #adress="ngModel">
+            <div [hidden]="adress.valid || adress.pristine"
+                 class="alert alert-danger">
+              L'adresse du contact est requise
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lienEnf">Lien avec l'enfant : </label>
+            <select class="form-control"  id="lienEnf" [(ngModel)]="contact.lienEleve" name="lienEnf" #lienEnf="ngModel">
+              <option *ngFor="let lienEleve of lienEleves" [value]="lienEleve">{{contact.lienEleve}}</option>
+            </select>
+            <div [hidden]="lienEnf.valid || lienEnf.pristine"
+                 class="alert alert-danger">
+              Le lien du contact avec l'élève est requis
+            </div>
+          </div>
+          <button [disabled]="!contactForm.form.valid" type="submit" class="btn btn-success">Modifier la contact</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

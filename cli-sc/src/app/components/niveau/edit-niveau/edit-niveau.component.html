@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <div *ngIf="isLoading">
+        <div class="fa-3x">
+          <i class="fas fa-spinner fa-spin"></i>
+        </div>
+      </div><br>
+      <div *ngIf="!isLoading">
+        <a routerLink="/niveaux">
+          <button type="button" class="btn btn-primary">
+            <i class="fa fa-backward"></i> Retour à la liste des niveaux
+          </button>
+        </a>
+        <h1>Editer le niveau {{ niveau?.name }} : </h1>
+      </div>
+      <form *ngIf="niveau" #modelForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text" class="form-control" id="name"  name="name" required [(ngModel)]="niveau.name"  #name="ngModel">
+          <div [hidden]="name.valid || name.pristine"
+               class="alert alert-danger">
+            Le nom du niveau est requis
+          </div>
+        </div>
+        <button [disabled]="!modelForm.form.valid" type="submit" class="btn btn-success">Modifier le model</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+

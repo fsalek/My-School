@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1>La contact : {{ contact.lastName }} {{ contact.firstName }}</h1>
+
+      <a class="mt-5" routerLink="/contacts">
+        <button type="button" class="btn btn-success">
+          <i class="fa fa-backward mr-2"></i> Retour à la liste des contacts
+        </button>
+      </a>
+      <table class="table">
+        <tbody>
+        <tr>
+          <th>Id : {{ contact.id }}</th>
+        </tr>
+        <tr>
+          <th>Nom : {{ contact.firstName }}</th>
+        </tr>
+
+        <tr>
+          <th>Prenom : {{ contact.lastName }}</th>
+        </tr>
+        <tr>
+          <th>E-mail : {{ contact.email }}</th>
+        </tr>
+        <tr>
+          <th>Téléphonne : {{ contact.phone }}</th>
+        </tr>
+        <tr>
+          <th>Adresse : {{ contact.adresse }}</th>
+        </tr>
+        <tr>
+          <th>Lien avec l'elèves : {{ contact.lienEleve }}</th>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+    <a (click)="deleteContact(contact.id)">
+      <button type="button" class="btn btn-danger">
+        <i class="fa fa-trash mr-2"></i> Supprimer {{ contact.firstName }}
+      </button>
+    </a>
+  </div>
+</div>
+

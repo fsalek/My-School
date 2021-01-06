@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <img class="img-thumbnail img-rounded"
+         src="{{this.professeurService.apiURL + '/photoProfesseur/' + professeur.id + '?ts' + getTs()}}"/>
+    <div *ngIf="isAdmin()">
+      <button (click)="onEditPhoto(professeur)">
+        <span class="fa fa-edit"></span>
+      </button>
+      <p *ngIf="editPhoto && currentProfesseur==professeur">
+        <input type="file" (change)="onSelectedFile($event)">
+        <button class="btn btn-success" (click)="uploadPhoto()">Upload</button>
+        {{progress}}
+      </p>
+    </div>
+    <div class="panel-heading">
+      <h1>L'professeur : {{ professeur.lastName }} {{ professeur.firstName }}</h1>
+
+      <a class="mt-5" routerLink="/professeurs">
+        <button type="button" class="btn btn-success">
+          <i class="fa fa-backward mr-2"></i> Retour à la liste des professeurs
+        </button>
+      </a>
+      <table class="table">
+        <tbody>
+        <tr>
+          <th>Id : {{ professeur.id }}</th>
+        </tr>
+        <tr>
+          <th>Nom : {{ professeur.firstName }}</th>
+        </tr>
+        <tr>
+          <th>Prenom : {{ professeur.lastName }}</th>
+        </tr>
+        <tr>
+          <th>Nombre d'heures : {{ professeur.nbreHeure }}</th>
+        </tr>
+        <tr>
+          <th>Matiere : {{ professeur.matiere.name }}</th>
+        </tr>
+        <tr>
+          <th>Teleohone : {{ professeur.phone }}</th>
+        </tr>
+        <tr>
+          <th>Email : {{ professeur.email }}</th>
+        </tr>
+        <tr>
+          <th>Adresse : {{ professeur.adresse }}</th>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+    <a (click)="deleteProfesseur(professeur.id)">
+      <button type="button" class="btn btn-danger">
+        <i class="fa fa-trash mr-2"></i> Supprimer {{ professeur.firstName }}
+      </button>
+    </a>
+  </div>
+</div>

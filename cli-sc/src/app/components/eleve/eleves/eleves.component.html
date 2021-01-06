@@ -1,0 +1,47 @@
+<div class="container col-md-11"><br>
+  <h3 class="text-center">Liste des eleves : </h3><br>
+  <a routerLink="/new-eleve">
+    <button type="button" class="btn btn-success"> Ajouter un eleve
+    </button>
+  </a>
+  <table class="table table-striped">
+    <thead>
+    <tr class="text-center">
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Classe</th>
+      <th>Image</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="text-center" *ngFor="let eleve of eleves">
+      <th>{{ eleve.id }}</th>
+      <th>{{ eleve.firstName}}</th>
+      <th>{{ eleve.lastName}}</th>
+      <th>{{ eleve.classe}}</th>
+      <th>
+        <img class="card-img-top img-responsive"
+             src = "{{this.elevService.host+'/Imgeleves/'+eleve.id}}"
+             style = "height :50px;width: 50px"
+             alt="">
+      </th>
+      <th>
+        <a class="ml-4" [routerLink]="['/eleve', eleve.id]">
+          <button type="button" class="btn btn-primary">Detail</button>
+        </a>
+
+        <a class="ml-4" [routerLink]="['/edit-eleve', eleve.id]">
+          <button type="button" class="btn btn-success ">Editer</button>
+        </a>
+
+        <a class="ml-4" (click)="deleteEleve(eleve.id)">
+          <button type="button" class="btn btn-danger">Supprimer</button>
+        </a>
+      </th>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

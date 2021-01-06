@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <div class="container col-md-11"><br><br>
+        <a routerLink="/matieres">
+          <button type="button" class="btn btn-primary">
+            <i class="fa fa-backward"></i> Retour à la liste des matieres
+          </button>
+        </a>
+        <h1>Ajouter une matiere : </h1>
+      </div>
+      <form #matiereForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text" class="form-control" id="name"  name="nom" required [(ngModel)]="matiere.name"  #name="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="coef">Coeficient</label>
+          <input type="number" class="form-control" id="coef"  name="coef" required [(ngModel)]="matiere.coeficient"  #coef="ngModel">
+        </div>
+        <button [disabled]="!matiereForm.form.valid" type="submit" class="btn btn-success">Ajouter la Matiere</button>
+      </form>
+    </div>
+  </div>
+</div>
+

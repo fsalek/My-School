@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1>La matiere : {{ matiere.name }}</h1>
+
+      <a class="mt-5" routerLink="/matieres">
+        <button type="button" class="btn btn-success">
+          <i class="fa fa-backward mr-2"></i> Retour à la liste des matieres
+        </button>
+      </a>
+      <table class="table">
+        <tbody>
+        <tr>
+          <th>Id : {{ matiere.id }}</th>
+        </tr>
+        <tr>
+          <th>Nom : {{ matiere.name }}</th>
+        </tr>
+        <tr>
+          <th>Coeficient : {{ matiere.coeficient }}</th>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+    <a (click)="deleteMatiere(matiere.id)">
+      <button type="button" class="btn btn-danger">
+        <i class="fa fa-trash mr-2"></i> Supprimer {{ matiere.name }}
+      </button>
+    </a>
+  </div>
+</div>
+

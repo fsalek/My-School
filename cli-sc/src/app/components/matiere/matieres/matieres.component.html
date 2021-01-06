@@ -1,0 +1,41 @@
+<div class="container col-md-11">
+  <h3 class="text-center">Liste des matiere proposées : </h3><br>
+  <a routerLink="/new-matiere">
+    <button type="button" class="btn btn-success"> Ajouter une matiere
+    </button>
+  </a>
+  <table class="table table-striped">
+    <thead>
+    <tr class="text-center">
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Coeficient</th>
+      <th>Selectionnée</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="text-center" *ngFor="let matiere of matieres">
+      <th>{{ matiere.id }}</th>
+      <th>{{ matiere.name }}</th>
+      <th>{{ matiere.coeficient }}</th>
+      <th>{{ matiere.selected }}</th>
+      <th>
+
+        <a class="ml-4" [routerLink]="['/matiere', matiere.id]">
+          <button type="button" class="btn btn-primary">Detail</button>
+        </a>
+
+        <a class="ml-4" [routerLink]="['/edit-matiere', matiere.id]">
+          <button type="button" class="btn btn-success ">Editer</button>
+        </a>
+
+        <a class="ml-4" (click)="deleteMatiere(matiere.id)">
+          <button type="button" class="btn btn-danger">Supprimer</button>
+        </a>
+      </th>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

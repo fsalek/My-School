@@ -1,0 +1,74 @@
+<!--<div class="container" ><br>
+  <div class="card">
+    <div class="panel panel-primary"><br>
+      <h1 class="text-center">Register</h1>
+      <div class="col row">
+        <div class="col-md-4">
+          <div class="col-sm-3"><img src="assets/img/kings.jpg" class="img-circle " style="width: 400%; height: 400%"></div>
+        </div>
+        <div class="col-md-8">
+          <form class = "user" [formGroup]="this.authService.dataForm" (ngSubmit)="onRegister()">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="icon-user">Username :</i></span>
+              </div>
+              <input type="text" class="form-control sty1"  id="username" formControlName="username" placeholder="username" required>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <input type="password" class="form-control form-control-user" formControlName="password" id="password" placeholder=" your Password">
+              </div>
+              <div class="col-sm-6">
+                <input type="password" class="form-control form-control-user" id="repassword" formControlName="repassword" placeholder="Repeat Password">
+              </div>
+            </div>
+            <button class="btn btn-success btn-user btn-block">Register Account</button>
+          </form>
+          <div class="text-center">
+            <a class="small" href="/login">Already have an account? Login!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+<div class="col-md-12 my-5 py-5">
+  <div class="jumbotron col-md-10 offset-1 ">
+    <div class="card">
+      <div class="panel panel-primary"><br>
+        <h1 class="text-center">Register</h1>
+        <div class="col row">
+          <div class="col-md-3">
+            <div class="col-sm-3"><img src="assets/img/kings.jpg" class="img-circle " style="width: 900%; height: 900%"></div>
+          </div>
+          <div class="col-md-7">
+            <form class = "user" [formGroup]="this.authService.dataForm" (ngSubmit)="onRegister()">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon-user">Username :</i></span>
+                </div>
+                <input type="text" class="form-control sty1"  id="username" formControlName="username" placeholder="username" required>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <input type="password" class="form-control form-control-user" formControlName="password" id="password" placeholder=" your Password">
+                </div>
+                <div class="col-sm-6">
+                  <input type="password" class="form-control form-control-user" id="repassword" formControlName="repassword" placeholder="Repeat Password">
+                </div>
+              </div>
+              <button class="btn btn-success btn-user btn-block">Register Account</button>
+            </form>
+            <div class="text-center">
+              <a class="small" href="/login">Already have an account? Login!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

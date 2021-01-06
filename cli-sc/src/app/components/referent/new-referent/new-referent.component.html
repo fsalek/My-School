@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <div class="container col-md-11"><br><br>
+        <a routerLink="/referents">
+          <button type="button" class="btn btn-primary">
+            <i class="fa fa-backward"></i> Retour à la liste des referents
+          </button>
+        </a>
+        <h1>Ajouter un referent : </h1>
+      </div>
+      <form #nivForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text"  class="form-control" name="nom" id="name"[(ngModel)]="referent.firstName" #firstName="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="prenam">Prenom</label>
+          <input type="text"  class="form-control" name="prenom" id="prenam"[(ngModel)]="referent.lastName" #lastName="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="adresse">Adresse</label>
+          <input type="text"  class="form-control" name="adresse" id="adresse"[(ngModel)]="referent.adresse" #adresse="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="tel">Telephonne</label>
+          <input type="text"  class="form-control" name="tel" id="tel"[(ngModel)]="referent.phone" #tel="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="mail">Email</label>
+          <input type="text"  class="form-control" name="mail" id="mail"[(ngModel)]="referent.email" #mail="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="lienEnf">Lien avec l'enfant</label>
+          <select class="form-control"  id="lienEnf"
+                  required
+                  [(ngModel)]="referent.lienEleve" name="lienEnf" #lienEnf="ngModel">
+            <option *ngFor="let lienEleve of lienEleves" [value]="lienEleve">{{lienEleve}}</option>
+          </select>
+        </div>
+        <button [disabled]="!nivForm.form.valid" type="submit" class="btn btn-success">Ajouter un referent</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+

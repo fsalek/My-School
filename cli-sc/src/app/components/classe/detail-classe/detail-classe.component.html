@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1>La classe : {{ classe.name }}</h1>
+
+      <a class="mt-5" routerLink="/classes">
+        <button type="button" class="btn btn-success">
+          <i class="fa fa-backward mr-2"></i> Retour à la liste des classes
+        </button>
+      </a>
+      <table class="table">
+        <tbody>
+        <tr>
+          <th>Id : {{ classe.id }}</th>
+        </tr>
+        <tr>
+          <th>Nom : {{ classe.name }}</th>
+        </tr>
+        <tr>
+          <th>Niveau : {{ classe.niv.name }}</th>
+        </tr>
+        <tr>
+          <th>nobre des elèves : {{ classe.nbEleves }}</th>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+    <a (click)="deleteClasse(classe.id)">
+      <button type="button" class="btn btn-danger">
+        <i class="fa fa-trash mr-2"></i> Supprimer {{ classe.name }}
+      </button>
+    </a>
+  </div>
+</div>

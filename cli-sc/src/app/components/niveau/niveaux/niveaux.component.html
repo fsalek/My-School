@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <div class="container col-md-11">
+          <h3 class="text-center">Les differents niveaux scolaires existants: </h3><br>
+          <a routerLink="/new-niveau">
+              <button type="button" class="btn btn-success"> Ajouter un niveau</button>
+          </a>
+        </div>
+          <table class="table table-striped">
+            <thead>
+            <tr class="text-center">
+              <th>Id</th>
+              <th>Nom</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="text-center" *ngFor="let niveau of niveaux">
+              <th>{{ niveau.id }}</th>
+              <th>{{ niveau.name }}</th>
+              <th>
+                <a class="ml-4" [routerLink]="['/niveau', niveau.id]">
+                  <button type="button" class="btn btn-primary">Detail</button>
+                </a>
+
+                <a class="ml-4" [routerLink]="['/edit-niveau', niveau.id]">
+                  <button type="button" class="btn btn-success ">Editer</button>
+                </a>
+
+                <a class="ml-4" (click)="deleteNiveau(niveau.id)">
+                  <button type="button" class="btn btn-danger">Supprimer</button>
+                </a>
+              </th>
+            </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+</div>
+
+

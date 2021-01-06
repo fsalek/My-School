@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h1>La referent : {{ referent.lastName }} {{ referent.firstName }}</h1>
+
+      <a class="mt-5" routerLink="/referents">
+        <button type="button" class="btn btn-success">
+          <i class="fa fa-backward mr-2"></i> Retour à la liste des referents
+        </button>
+      </a>
+      <table class="table">
+        <tbody>
+        <tr>
+          <th>Id : {{ referent.id }}</th>
+        </tr>
+        <tr>
+          <th>Nom : {{ referent.firstName }}</th>
+        </tr>
+
+        <tr>
+          <th>Prenom : {{ referent.lastName }}</th>
+        </tr>
+        <tr>
+          <th>E-mail : {{ referent.email }}</th>
+        </tr>
+        <tr>
+          <th>Téléphonne : {{ referent.phone }}</th>
+        </tr>
+        <tr>
+          <th>Adresse : {{ referent.adresse }}</th>
+        </tr>
+        <tr>
+          <th>Lien avec l'elèves : {{ referent.lienEleve }}</th>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+    <a (click)="deleteReferent(referent.id)">
+      <button type="button" class="btn btn-danger">
+        <i class="fa fa-trash mr-2"></i> Supprimer {{ referent.firstName }}
+      </button>
+    </a>
+  </div>
+</div>
+

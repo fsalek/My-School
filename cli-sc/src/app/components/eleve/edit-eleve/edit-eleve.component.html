@@ -1,0 +1,104 @@
+<div class="container-fluid">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <div *ngIf="isLoading">
+        <div class="fa-3x">
+          <i class="fas fa-spinner fa-spin"></i>
+        </div>
+      </div><br>
+      <div *ngIf="!isLoading">
+        <a routerLink="/eleves">
+          <button type="button" class="btn btn-primary">
+            <i class="fa fa-backward"></i> Retour à la liste des eleves
+          </button>
+        </a>
+        <h1>Editer l'eleve {{ eleve?.lastName }} {{ eleve?.firstName }} : </h1>
+        <form *ngIf="eleve" #eleveForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Nom : </label>
+            <input type="text" class="form-control" id="name"  name="name" required [(ngModel)]="eleve.firstName"  #name="ngModel">
+            <div [hidden]="name.valid || name.pristine"
+                 class="alert alert-danger">
+              Le nom de l'eleve est requis
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastname">Prenom : </label>
+            <input type="text"  class="form-control" name="lastname" id="lastname" required [(ngModel)]="eleve.lastName" #name="ngModel">
+            <div [hidden]="name.valid || name.pristine"
+                 class="alert alert-danger">
+              Le prenom du l'eleve est requis
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="genre">Genre : </label>
+            <select class="form-control"  id="genre" [(ngModel)]="eleve.genre" name="genre" #genre="ngModel">
+              <option *ngFor="let genre of genres" [value]="genre">{{genre}}</option>
+            </select>
+            <div [hidden]="genre.valid || genre.pristine"
+                 class="alert alert-danger">
+              Le sexe de l'eleve est requis
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dateNaissance">Date Naissance : </label>
+            <input type="date"  class="form-control" name="dateNaissance" id="dateNaissance" required [(ngModel)]="eleve.dateNaissance" #dateNaissance="ngModel">
+            <div [hidden]="dateNaissance.valid || dateNaissance.pristine"
+                 class="alert alert-danger">
+              La date de naissance de l'eleve est requise
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="adresse">Adresse : </label>
+            <input type="text"  class="form-control" name="adresse" id="adresse" required [(ngModel)]="eleve.adresse" #adresse="ngModel">
+            <div [hidden]="adresse.valid || adresse.pristine"
+                 class="alert alert-danger">
+              L'adresse de l'eleve est requise
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cont">Contact : </label>
+            <input type="text"  class="form-control" name="cont" id="cont" required [(ngModel)]="eleve.contact.lastName" #cont="ngModel">
+            <div [hidden]="cont.valid || cont.pristine"
+                 class="alert alert-danger">
+              Le contact de l'eleve est requise
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="classe">Classe : </label>
+            <input type="text"  class="form-control" name="classe" id="classe" required [(ngModel)]="eleve.classe.name" #classe="ngModel">
+            <div [hidden]="classe.valid || classe.pristine"
+                 class="alert alert-danger">
+              Le classe de l'eleve est requise
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="moyenne">Moyenne : </label>
+            <input type="text"  class="form-control" name="moyenne" id="moyenne" required [(ngModel)]="eleve.moyenne" #moyenne="ngModel">
+            <div [hidden]="moyenne.valid || moyenne.pristine"
+                 class="alert alert-danger">
+              Le moyenne de l'eleve est requise
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="moyenneGenerale">Moyenne Generale: </label>
+            <input type="text"  class="form-control" name="moyenneGenerale" id="moyenneGenerale" required [(ngModel)]="eleve.moyenneGeneral" #moyenneGenerale="ngModel">
+            <div [hidden]="moyenneGenerale.valid || moyenneGenerale.pristine"
+                 class="alert alert-danger">
+              Le moyenne Generalede l'eleve est requise
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="observation">Observations : </label>
+            <input type="text"  class="form-control" name="observation" id="observation" required [(ngModel)]="eleve.observations" #observations="ngModel">
+            <div [hidden]="observations.valid || observations.pristine"
+                 class="alert alert-danger">
+              Les observations sur l'eleve sont requises
+            </div>
+          </div>
+            <button [disabled]="!eleveForm.form.valid" type="submit" class="btn btn-success">Modifier l'eleve</button>
+        </form>
+    </div>
+  </div>
+</div>
+</div>

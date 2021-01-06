@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <div *ngIf="isLoading">
+        <div class="fa-3x">
+          <i class="fas fa-spinner fa-spin"></i>
+        </div>
+      </div><br>
+      <div *ngIf="!isLoading">
+        <a routerLink="/classes">
+          <button type="button" class="btn btn-primary">
+            <i class="fa fa-backward"></i> Retour à la liste des classes
+          </button>
+        </a>
+        <h1>Editer l'classe {{ classe?.name }} : </h1>
+        <form *ngIf="classe" #classeForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Nom : </label>
+            <input type="text" class="form-control" id="name"  name="name" required [(ngModel)]="classe.name"  #name="ngModel">
+            <div [hidden]="name.valid || name.pristine"
+                 class="alert alert-danger">
+              Le nom de la conducteur est requis
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="classe">Niveau : </label>
+            <input type="text"  class="form-control" name="classe" id="classe" required [(ngModel)]="classe.niv.name" #niv="ngModel">
+            <div [hidden]="niv.valid || niv.pristine"
+                 class="alert alert-danger">
+              Le genre est requis
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="nbElev">Nombre des eleves : </label>
+            <input type="text"  class="form-control" name="nbElev" id="nbElev" required [(ngModel)]="classe.nbEleves" #nbElev="ngModel">
+            <div [hidden]="nbElev.valid || nbElev.pristine"
+                 class="alert alert-danger">
+              Le moyenne de l'classe est requise
+            </div>
+          </div>
+          <button [disabled]="!classeForm.form.valid" type="submit" class="btn btn-success">Modifier la classe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

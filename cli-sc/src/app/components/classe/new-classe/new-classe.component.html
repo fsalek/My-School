@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <div class="container col-md-11"><br><br>
+        <a routerLink="/classes">
+          <button type="button" class="btn btn-primary">
+            <i class="fa fa-backward"></i> Retour à la liste des classes
+          </button>
+        </a>
+        <h1>Ajouter une classe : </h1>
+      </div>
+      <form #classeForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text" class="form-control" id="name"  name="nom" required [(ngModel)]="classe.name"  #name="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="model">Niveau</label>
+          <select class="form-control"  id="model" required [(ngModel)]="niveaux" name="model" #niveau="ngModel">
+            <option *ngFor="let niveau of niveaux" [value]="niveaux">{{niveau.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="nbElevess">Nombre des eleves</label>
+          <input type="number" class="form-control" id="nbElevess"  name="nbElevess" required [(ngModel)]="classe.nbEleves"  #nbElevess="ngModel">
+        </div>
+        <button [disabled]="!classeForm.form.valid" type="submit" class="btn btn-success">Ajouter la voiture</button>
+      </form>
+    </div>
+  </div>
+</div>
+

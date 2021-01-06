@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <table class="table">
+        <thead>
+        <h1>L'eleve : {{ eleve.lastName }} {{ eleve.firstName }}</h1>
+        <a class="mt-5" routerLink="/eleves">
+          <button type="button" class="btn btn-success">
+            <i class="fa fa-backward mr-2"></i> Retour à la liste des eleves
+          </button>
+        </a>
+        </thead>
+        <tbody>
+        <tr rowspan="3">
+          <img [height]="100" src="{{this.eleveService.apiUrl + '/photoEleve/' + eleve.id}}">
+        </tr>
+        <tr *ngIf="isAdmin()">
+          <button (click)="onEditPhoto(eleve)">
+            <span class="fa fa-edit"></span>
+          </button>
+          <p *ngIf="editPhoto && currentEleve==eleve">
+            <input type="file" (change)="onSelectedFile($event)">
+            <button class="btn btn-success" (click)="uploadPhoto()">Upload</button>
+            {{progress}}
+          </p>
+        </tr>
+        <tr>
+          <th>Id : {{ eleve.id }}</th>
+        </tr>
+        <tr>
+          <th>Nom : {{ eleve.firstName }}</th>
+        </tr>
+        <tr>
+          <th>Prenom : {{ eleve.lastName }}</th>
+        </tr>
+        <tr>
+          <th>Date de naissance : {{ eleve.dateNaissance|date: 'dd/MM/yyyy'}}</th>
+        </tr>
+        <tr>
+          <th>Genre : {{ eleve.genre }}</th>
+        </tr>
+        <tr>
+          <th>Classe : {{ eleve.classe }}</th>
+        </tr>
+        <tr>
+          <th> Referent : {{ eleve.referent }} {{ eleve.referent }}</th>
+        </tr>
+        <tr>
+          <th>Moyenne : {{ eleve.moyenne }}</th>
+        </tr>
+        <tr>
+          <th>Observations : {{ eleve.observations }}</th>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+    <a (click)="deleteEleve(eleve.id)">
+      <button type="button" class="btn btn-danger">
+        <i class="fa fa-trash mr-2"></i> Supprimer {{ eleve.firstName }}
+      </button>
+    </a>
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h1>Bienvenue chez le niveau {{ niveau.name }}</h1>
+
+        <a class="mt-5" routerLink="/niveaux">
+          <button type="button" class="btn btn-success">
+            <i class="fa fa-backward mr-2"></i> Retour à la liste des niveaus
+          </button>
+        </a>
+
+        <table class="table">
+          <tbody>
+          <tr>
+            <th>Id: {{ niveau.id }}</th>
+          </tr>
+          <tr>
+            <th>Nom: {{ niveau.name }}</th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <div>
+    <a (click)="deleteNiveau(niveau.id)">
+      <button type="button" class="btn btn-danger">
+        <i class="fa fa-trash mr-2"></i> Supprimer {{ niveau.name }}
+      </button>
+    </a>
+  </div>
+</div>
+
+
+
+

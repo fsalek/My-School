@@ -1,0 +1,42 @@
+<div class="container col-md-11">
+  <h3 class="text-center">Liste des professeur existants : </h3><br>
+  <a routerLink="/new-professeur">
+    <button type="button" class="btn btn-success"> Ajouter un professeur
+    </button>
+  </a>
+  <table class="table table-striped">
+    <thead>
+    <tr class="text-center">
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Matiere</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="text-center" *ngFor="let professeur of professeurs">
+      <th>{{ professeur.id }}</th>
+      <th>{{ professeur.firstName}}</th>
+      <th>{{ professeur.lastName}}</th>
+      <th>{{ professeur.matiere}}</th>
+      <th>
+
+        <a class="ml-4" [routerLink]="['/professeur', professeur.id]">
+          <button type="button" class="btn btn-primary">Detail</button>
+        </a>
+
+        <a class="ml-4" [routerLink]="['/edit-professeur', professeur.id]">
+          <button type="button" class="btn btn-success ">Editer</button>
+        </a>
+
+        <a class="ml-4" (click)="deleteProfesseur(professeur.id)">
+          <button type="button" class="btn btn-danger">Supprimer</button>
+        </a>
+      </th>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
